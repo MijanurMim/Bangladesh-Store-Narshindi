@@ -1,6 +1,5 @@
 import React from "react";
 import NavBar from "../../NavBar/NavBar";
-import AllProducts from "../../Products/AllProducts/AllProducts";
 import AboutUs from "../AboutUs/AboutUs";
 import Banner from "../Banner/Banner";
 import Catagories from "../Catagories/Catagories";
@@ -16,7 +15,7 @@ const Home = () => {
       <JwelleryPrice></JwelleryPrice>
       <Banner></Banner>
       <AboutUs></AboutUs>
-      <AllProducts></AllProducts>
+      {/* <AllProducts></AllProducts> */}
       <Catagories></Catagories>
       <Owners></Owners>
       <ContactUs></ContactUs>

@@ -1,6 +1,7 @@
 import "bootstrap/dist/css/bootstrap.min.css";
 import React from "react";
 import { Container, Nav, Navbar, NavDropdown } from "react-bootstrap";
+import { Link } from "react-router-dom";
 import logo from "../../images/logo2.jpg";
 const NavBar = () => {
   return (
@@ -63,6 +64,9 @@ const NavBar = () => {
                 </Nav.Link>
                 <Nav.Link className="px-3  text-black" href="/home#aboutus">
                   About Us
+                </Nav.Link>
+                <Nav.Link className="px-3  text-black" href="/home#aboutus">
+                  <Link to="/login">Login</Link>
                 </Nav.Link>
               </Nav>
             </div>

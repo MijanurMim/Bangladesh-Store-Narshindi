@@ -28,8 +28,8 @@ const AllProducts = () => {
       alert.error(error);
       dispatch(clearErrors());
     }
-    dispatch(getProduct(keyword));
-  }, [dispatch, error, alert, keyword]);
+    dispatch(getProduct(keyword, currentPage));
+  }, [dispatch, error, alert, keyword, currentPage]);
 
   console.log(products);
 
@@ -45,22 +45,24 @@ const AllProducts = () => {
                 <Products key={product._id} product={product}></Products>
               ))}
           </div>
-          <div>
-            <Pagination
-              activePage={currentPage}
-              itemsCountPerPage={resultPerPage}
-              totalItemsCount={productsCount}
-              onChange={setCurrentPageNo}
-              nextPageText="Next"
-              prevPageText="Prev"
-              firstPageText="1st"
-              lastPageText="Last"
-              itemClass="page-item"
-              linkClass="page-link"
-              activeClass="pageItemActive"
-              activeLinkClass="pageLinkActive"
-            ></Pagination>
-          </div>
+          {resultPerPage < productsCount && (
+            <div>
+              <Pagination
+                activePage={currentPage}
+                itemsCountPerPage={resultPerPage}
+                totalItemsCount={productsCount}
+                onChange={setCurrentPageNo}
+                nextPageText="Next"
+                prevPageText="Prev"
+                firstPageText="1st"
+                lastPageText="Last"
+                itemClass="page-item"
+                linkClass="page-link"
+                activeClass="pageItemActive"
+                activeLinkClass="pageLinkActive"
+              ></Pagination>
+            </div>
+          )}
         </div>
       )}
     </>

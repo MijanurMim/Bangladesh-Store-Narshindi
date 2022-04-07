@@ -1,6 +1,6 @@
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import "./App.css";
-import Search from "./components/Search/Search";
+import LoginSignUp from "./components/User/LoginSignUp/LoginSignUp";
 import AboutUs from "./Pages/Home/AboutUs/AboutUs";
 import Home from "./Pages/Home/Home/Home";
 import NotFound from "./Pages/NotFound/NotFound";
@@ -45,7 +45,13 @@ function App() {
 
           <Route path="/product/:category" element={<AllProducts />}></Route>
 
-          <Route path="/search" element={<Search />}></Route>
+          <Route path="/login" element={<LoginSignUp></LoginSignUp>}></Route>
+
+          {/* <Route path="/login" element={<Login></Login>}></Route>
+
+          <Route path="/register" element={<Register />}></Route> */}
+
+          {/* <Route path="/search" element={<Search />}></Route> */}
 
           <Route path="*" element={<NotFound />}></Route>
         </Routes>

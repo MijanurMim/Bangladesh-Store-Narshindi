@@ -1,3 +1,14 @@
 .box {
-    box-shadow: 5px 5px 5px 4px rgb(194, 187, 187);
+  box-shadow: 5px 5px 5px 4px rgb(194, 187, 187);
+}
+ul {
+  list-style-type: none;
+  text-align: left;
+}
+
+li {
+  cursor: pointer;
+}
+li:hover {
+  color: palevioletred;
 }
