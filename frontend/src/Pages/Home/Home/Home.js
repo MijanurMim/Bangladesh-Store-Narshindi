@@ -1,17 +1,14 @@
 import React from "react";
-import NavBar from "../../NavBar/NavBar";
 import AboutUs from "../AboutUs/AboutUs";
 import Banner from "../Banner/Banner";
 import Catagories from "../Catagories/Catagories";
 import ContactUs from "../ContactUs/ContactUs";
-import Footer from "../Footer/Footer";
 import JwelleryPrice from "../JwelleryPrice/JwelleryPrice";
 import Owners from "../Owners/Owners";
 
 const Home = () => {
   return (
     <div>
-      <NavBar></NavBar>
       <JwelleryPrice></JwelleryPrice>
       <Banner></Banner>
       <AboutUs></AboutUs>
@@ -21,7 +18,6 @@ const Home = () => {
       <ContactUs></ContactUs>
       {/* <ProductDetail></ProductDetail> */}
       {/* <ProductShow></ProductShow> */}
-      <Footer></Footer>
     </div>
   );
 };

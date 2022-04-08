@@ -5,8 +5,6 @@ import { useDispatch, useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
 import Spinner from "../../../components/spinner/Spinner";
 import { clearErrors, getProduct } from "../../../redux/actions/productAction";
-import Footer from "../../Home/Footer/Footer";
-import NavBar from "../../NavBar/NavBar";
 import Products from "../Products/Products";
 import "./Gold.css";
 
@@ -63,7 +61,6 @@ const Gold = () => {
         <Spinner></Spinner>
       ) : (
         <>
-          <NavBar></NavBar>
           <h2>
             Our <span style={{ color: "gray" }}>Gold </span> Products
           </h2>
@@ -114,7 +111,6 @@ const Gold = () => {
               </div>
             </div>
           </div>
-          <Footer></Footer>
         </>
       )}
     </>

@@ -1,9 +1,25 @@
 import "bootstrap/dist/css/bootstrap.min.css";
 import React from "react";
+import { useAlert } from "react-alert";
 import { Container, Nav, Navbar, NavDropdown } from "react-bootstrap";
+import { useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
 import logo from "../../images/logo2.jpg";
-const NavBar = () => {
+import { logout } from "../../redux/actions/userAction";
+
+const NavBar = ({ user }) => {
+  console.log(user);
+  const { role } = user || {};
+
+  const alert = useAlert();
+
+  //    Handle Logout
+  const dispatch = useDispatch();
+  const handleLogout = () => {
+    dispatch(logout());
+    alert.success("Logged Out Successfully");
+  };
+
   return (
     <div>
       <Navbar style={{ backgroundColor: "white" }} expand="lg">
@@ -65,9 +81,21 @@ const NavBar = () => {
                 <Nav.Link className="px-3  text-black" href="/home#aboutus">
                   About Us
                 </Nav.Link>
-                <Nav.Link className="px-3  text-black" href="/home#aboutus">
-                  <Link to="/login">Login</Link>
-                </Nav.Link>
+
+                {/* <div>{user.role === "admin" && <Dashboard />}</div> */}
+
+                {role === "admin" && (
+                  <Nav.Link className="px-3  text-black" href="/home#aboutus">
+                    <Link to="/dashboard">Dashboard</Link>
+                  </Nav.Link>
+                )}
+                {user ? (
+                  <button onClick={handleLogout}>Logout</button>
+                ) : (
+                  <Nav.Link className="px-3  text-black" href="/home#aboutus">
+                    <Link to="/login">Login</Link>
+                  </Nav.Link>
+                )}
               </Nav>
             </div>
           </Navbar.Collapse>

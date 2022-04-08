@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { useAlert } from "react-alert";
 import ReactStars from "react-rating-stars-component";
 import { useDispatch, useSelector } from "react-redux";
@@ -7,10 +7,15 @@ import Spinner from "../../components/spinner/Spinner";
 import {
   clearErrors,
   getProductDetails,
+  newReview,
 } from "../../redux/actions/productAction";
+import { NEW_REVIEW_RESET } from "../../redux/constants/productConstants";
 import ReviewCard from "./ReviewCard/ReviewCard";
 
 const ProductDetail = () => {
+  const [rating, setRating] = useState();
+  const [comment, setComment] = useState("");
+
   const dispatch = useDispatch();
 
   const { id } = useParams();
@@ -21,23 +26,46 @@ const ProductDetail = () => {
     (state) => state.productDetails
   );
 
+  // Review Section
+  const { success, error: reviewError } = useSelector(
+    (state) => state.newReview
+  );
+
   useEffect(() => {
     if (error) {
       alert.error(error);
       dispatch(clearErrors());
     }
+    if (reviewError) {
+      alert.error(reviewError);
+      dispatch(clearErrors());
+    }
+    if (success) {
+      alert.success("Review Submitted Successfully");
+      dispatch({ type: NEW_REVIEW_RESET });
+    }
 
     dispatch(getProductDetails(id));
-  }, [dispatch, id, error, alert]);
+  }, [dispatch, id, error, alert, reviewError, success]);
 
   //   Rating Options
   const options = {
-    edit: false,
-    color: "rgba(20,20,20,0.1",
-    activeColor: "tomato",
-    size: window.innerWidth < 600 ? 20 : 25,
+    size: "large",
     value: product.ratings,
-    isHalf: true,
+    readonly: true,
+    precision: 0.5,
+  };
+
+  // Review Submit
+  const reviewSubmit = (e) => {
+    e.preventDefault();
+
+    const myForm = new FormData();
+    myForm.set("rating", rating);
+    myForm.set("comment", comment);
+    myForm.set("productId", id);
+
+    dispatch(newReview(myForm));
   };
 
   return (
@@ -74,13 +102,31 @@ const ProductDetail = () => {
               <div>
                 Description: <p>{product.description}</p>
               </div>
-              <button>Submit Review </button>
             </div>
           </div>
 
           {/* Reviews Section  */}
           <div>
             <h3>Reviews</h3>
+
+            <form>
+              <input
+                type="number"
+                placeholder="Give Ratings 0 to 5"
+                value={rating}
+                onChange={(e) => setRating(e.target.value)}
+              />
+
+              <textarea
+                cols="30"
+                rows="5"
+                placeholder="Give Your Review"
+                value={comment}
+                onChange={(e) => setComment(e.target.value)}
+              />
+              <button onClick={reviewSubmit}>Submit Review </button>
+            </form>
+
             {product.reviews && product.reviews[0] ? (
               <>
                 <div>
