@@ -1,30 +1,29 @@
 .footer-container {
-    background-image: url("../../../images/bg-4.jpg");
-    background-position: center;
-    background-size: cover;
-    background-repeat: no-repeat;
-    height: 370px;
-    background-color: #f7ece7;
-    background-blend-mode: overlay;
+  background-image: url("../../../images/bg-4.jpg");
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  height: 370px;
+  background-color: #f7ece7;
+  background-blend-mode: overlay;
 }
 
 .marginTop {
-    margin-top: 100px;
+  margin-top: 300px;
 }
 
-@media only screen and (max-width:600px) {
-    .footer-container {
-        height: 900px
-    }
+@media only screen and (max-width: 600px) {
+  .footer-container {
+    height: 900px;
+  }
 }
 
-@media only screen and (max-width:900px) and (min-width:601px) {
-    .marginTop {
-        margin-top: 30px;
+@media only screen and (max-width: 900px) and (min-width: 601px) {
+  .marginTop {
+    margin-top: 30px;
+  }
 
-    }
-
-    .footer-container {
-        height: 600px
-    }
+  .footer-container {
+    height: 600px;
+  }
 }

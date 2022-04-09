@@ -3,7 +3,7 @@ import "./Footer.css";
 
 const Footer = () => {
   return (
-    <div className=" row footer-container my-auto">
+    <div className=" row footer-container my-auto marginTop ">
       <div className="col-md-4 marginTop ">
         <h1>Bangladesh Store</h1>
         <div className="  w-75 mx-auto  text-start">

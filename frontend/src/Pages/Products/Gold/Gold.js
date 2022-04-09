@@ -27,6 +27,25 @@ const categories = [
   "Tiara",
   "Tikli",
   "Others",
+
+  // "Gold Anklet",
+  // "Gold Bala",
+  // "GOld Bangal",
+  // "Gold Crown",
+  // "Gold Chur",
+  // "Gold Chain",
+  // "Gold Earrings",
+  // "Gold Finger Ring",
+  // "Gold Locket",
+  // "Gold Mangalsutra",
+  // "Gold Nosepin",
+  // "Gold Necklace",
+  // "Gold Pola",
+  // "Gold Shakha",
+  // "Gold Shitahar",
+  // "Gold Tiara",
+  // "Gold Tikli",
+  // "Gold Others",
 ];
 
 const Gold = () => {

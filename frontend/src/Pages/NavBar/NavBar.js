@@ -8,7 +8,6 @@ import logo from "../../images/logo2.jpg";
 import { logout } from "../../redux/actions/userAction";
 
 const NavBar = ({ user }) => {
-  console.log(user);
   const { role } = user || {};
 
   const alert = useAlert();
@@ -86,7 +85,7 @@ const NavBar = ({ user }) => {
 
                 {role === "admin" && (
                   <Nav.Link className="px-3  text-black" href="/home#aboutus">
-                    <Link to="/dashboard">Dashboard</Link>
+                    <Link to="/admin/dashboard">Dashboard</Link>
                   </Nav.Link>
                 )}
                 {user ? (

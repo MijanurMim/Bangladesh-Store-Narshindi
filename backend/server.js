@@ -1,12 +1,14 @@
 const app = require("./app");
 const mongoose = require("mongoose");
 const dotenv = require("dotenv");
+
 const cloudinary = require("cloudinary");
 
 // Handle Uncaught Exception
 process.on("uncaughtException", (err) => {
   console.log(`Error:${err.message}`);
   console.log(`Shutting Down The Server Due to Uncaught Exception`);
+
   process.exit(1);
 });
 
@@ -24,8 +26,8 @@ mongoose
 // Cloudninary Connection
 cloudinary.config({
   cloud_name: process.env.CLOUDINARY_NAME,
-  cloud_key: process.env.CLOUDINARY_API_KEY,
-  cloud_secret: process.env.CLOUDINARY_API_SECRET,
+  api_key: process.env.CLOUDINARY_API_KEY,
+  api_secret: process.env.CLOUDINARY_API_SECRET,
 });
 
 const server = app.listen(process.env.PORT, () => {

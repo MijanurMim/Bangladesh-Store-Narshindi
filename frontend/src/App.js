@@ -3,6 +3,8 @@ import { useSelector } from "react-redux";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import "./App.css";
 import Dashboard from "./components/Admin/Dashboard/Dashboard";
+import NewProduct from "./components/Admin/Dashboard/NewProduct/NewProduct";
+import ProductsList from "./components/Admin/ProductsList/ProductsList";
 import PrivateRoute from "./components/Route/PrivateRoute";
 import LoginSignUp from "./components/User/LoginSignUp/LoginSignUp";
 import AboutUs from "./Pages/Home/AboutUs/AboutUs";
@@ -61,6 +63,24 @@ function App() {
               element={
                 <PrivateRoute>
                   <Dashboard />
+                </PrivateRoute>
+              }
+            ></Route>
+
+            <Route
+              path="/admin/products"
+              element={
+                <PrivateRoute>
+                  <ProductsList />
+                </PrivateRoute>
+              }
+            ></Route>
+
+            <Route
+              path="/admin/product"
+              element={
+                <PrivateRoute>
+                  <NewProduct />
                 </PrivateRoute>
               }
             ></Route>
