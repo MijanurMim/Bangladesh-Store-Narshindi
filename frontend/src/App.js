@@ -4,6 +4,7 @@ import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import "./App.css";
 import Dashboard from "./components/Admin/Dashboard/Dashboard";
 import NewProduct from "./components/Admin/Dashboard/NewProduct/NewProduct";
+import UpdateProduct from "./components/Admin/Dashboard/UpdateProduct/UpdateProduct";
 import ProductsList from "./components/Admin/ProductsList/ProductsList";
 import PrivateRoute from "./components/Route/PrivateRoute";
 import LoginSignUp from "./components/User/LoginSignUp/LoginSignUp";
@@ -81,6 +82,15 @@ function App() {
               element={
                 <PrivateRoute>
                   <NewProduct />
+                </PrivateRoute>
+              }
+            ></Route>
+
+            <Route
+              path="/admin/product/:id"
+              element={
+                <PrivateRoute>
+                  <UpdateProduct></UpdateProduct>
                 </PrivateRoute>
               }
             ></Route>

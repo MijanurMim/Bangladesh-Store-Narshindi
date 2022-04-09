@@ -33,7 +33,7 @@ const ProductListData = ({ product }) => {
       <td>{Stock}</td>
       <td>{price}</td>
       <td>
-        <Link to={`/admin/product/${_id}`}>Edit</Link>
+        <Link to={`/admin/product/${_id}`}>Edit </Link>
       </td>
       <td>
         <button onClick={() => deleteProductHandler(_id)}>Delete</button>
