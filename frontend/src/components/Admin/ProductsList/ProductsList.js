@@ -5,6 +5,7 @@ import {
   clearErrors,
   getAdminProduct,
 } from "../../../redux/actions/productAction";
+import Spinner from "../../spinner/Spinner";
 import Sidebar from "../Sidebar/Sidebar";
 import ProductListData from "./ProductListData";
 
@@ -13,7 +14,7 @@ const ProductsList = () => {
   const alert = useAlert();
   //   const { id } = useParams();
 
-  const { error, products } = useSelector((state) => state.products);
+  const { error, products, loading } = useSelector((state) => state.products);
 
   useEffect(() => {
     if (error) {
@@ -26,36 +27,42 @@ const ProductsList = () => {
   console.log(products);
 
   return (
-    <div className="container">
-      <div className="row">
-        <div className="col-4">
-          <Sidebar></Sidebar>
+    <>
+      {loading ? (
+        <Spinner />
+      ) : (
+        <div className="container">
+          <div className="row">
+            <div className="col-4">
+              <Sidebar></Sidebar>
+            </div>
+            <div className="col-8">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th scope="col">ID</th>
+                    <th scope="col">NAME</th>
+                    <th scope="col">STOCK</th>
+                    <th scope="col">PRICE</th>
+                    <th scope="col">EDIT</th>
+                    <th scope="col">DELETE</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {products &&
+                    products.map((product) => (
+                      <ProductListData
+                        key={product._id}
+                        product={product}
+                      ></ProductListData>
+                    ))}
+                </tbody>
+              </table>
+            </div>
+          </div>
         </div>
-        <div className="col-8">
-          <table class="table">
-            <thead>
-              <tr>
-                <th scope="col">ID</th>
-                <th scope="col">NAME</th>
-                <th scope="col">STOCK</th>
-                <th scope="col">PRICE</th>
-                <th scope="col">EDIT</th>
-                <th scope="col">DELETE</th>
-              </tr>
-            </thead>
-            <tbody>
-              {products &&
-                products.map((product) => (
-                  <ProductListData
-                    key={product._id}
-                    product={product}
-                  ></ProductListData>
-                ))}
-            </tbody>
-          </table>
-        </div>
-      </div>
-    </div>
+      )}
+    </>
   );
 };
 

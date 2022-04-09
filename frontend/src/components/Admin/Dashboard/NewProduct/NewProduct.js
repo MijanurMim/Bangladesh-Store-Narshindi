@@ -63,10 +63,10 @@ const NewProduct = () => {
     }
   }, [dispatch, alert, error, navigate, success]);
 
-  const handleCreateProduct = async (e) => {
+  const handleCreateProduct = (e) => {
     e.preventDefault();
 
-    await dispatch(createProduct(product));
+    dispatch(createProduct(product));
   };
 
   //   Image Handler
