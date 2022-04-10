@@ -28,9 +28,9 @@ export const getAccessories =
     try {
       dispatch({ type: ALL_ACCESSORIES_REQUEST });
 
-      let link = `/api/v1//accessories?&page=${currentPage}`;
+      let link = `/api/v1/accessories?&page=${currentPage}`;
       if (category) {
-        link = `/api/v1//accessories?&page=${currentPage}&category=${category}`;
+        link = `/api/v1/accessories?&page=${currentPage}&category=${category}`;
       }
 
       const { data } = await axios.get(link);
@@ -122,11 +122,6 @@ export const deleteAccessory = (id) => async (dispatch) => {
   }
 };
 
-// Clearing Errors
-export const clearErrors = () => async (dispatch) => {
-  dispatch({ type: CLEAR_ERRORS });
-};
-
 // Updating Existing Accessory
 export const updateAccessory = (id, accessoryData) => async (dispatch) => {
   try {
@@ -152,4 +147,9 @@ export const updateAccessory = (id, accessoryData) => async (dispatch) => {
       payload: error.response.data.message,
     });
   }
+};
+
+// Clearing Errors
+export const clearErrors = () => async (dispatch) => {
+  dispatch({ type: CLEAR_ERRORS });
 };

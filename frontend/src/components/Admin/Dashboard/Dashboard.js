@@ -12,7 +12,8 @@ const Dashboard = () => {
 
         {/* Dashboard Section  */}
         <div className="col-8">
-          <h1>Dashboard</h1>
+          <h1>WELCOME TO BANGLADESH STORE </h1>
+          <h3>Only Authorized Members Allowed</h3>
         </div>
       </div>
     </div>

@@ -11,6 +11,7 @@ import { UPDATE_ACCESSORIES_RESET } from "../../../../redux/constants/accessorie
 import Spinner from "../../../spinner/Spinner";
 import Sidebar from "../../Sidebar/Sidebar";
 const categories = ["Bag", "Box", "Machine", "Manufacture Item"];
+
 const UpdateAccessory = () => {
   const [inputs, setInputs] = useState({});
   const [images, setImages] = useState([]);

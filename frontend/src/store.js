@@ -16,6 +16,12 @@ import {
   productReducer,
   updateProductReducer,
 } from "./redux/reducers/productReducer";
+import {
+  deleteUnitReducer,
+  newUnitReducer,
+  unitsReducer,
+  updateUnitReducer,
+} from "./redux/reducers/unitReducer";
 import { userReducer } from "./redux/reducers/userReducer";
 
 const reducer = combineReducers({
@@ -32,6 +38,11 @@ const reducer = combineReducers({
   newAccessory: newAccessoryReducer,
   deleteAccessory: deleteAccessoryReducer,
   updateAccessory: updateAccessoryReducer,
+
+  units: unitsReducer,
+  newUnit: newUnitReducer,
+  deleteUnit: deleteUnitReducer,
+  updateUnit: updateUnitReducer,
 });
 
 let initialState = {};

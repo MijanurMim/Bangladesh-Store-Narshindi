@@ -6,9 +6,12 @@ import AccessoriesList from "./components/Admin/AccessoriesList/AccessoriesList"
 import Dashboard from "./components/Admin/Dashboard/Dashboard";
 import NewAccessory from "./components/Admin/Dashboard/NewAccessory/NewAccessory";
 import NewProduct from "./components/Admin/Dashboard/NewProduct/NewProduct";
+import NewUnit from "./components/Admin/Dashboard/NewUnit/NewUnit";
 import UpdateAccessory from "./components/Admin/Dashboard/UpdateAccessory/UpdateAccessory";
 import UpdateProduct from "./components/Admin/Dashboard/UpdateProduct/UpdateProduct";
+import UpdateUnit from "./components/Admin/Dashboard/UpdateUnit/UpdateUnit";
 import ProductsList from "./components/Admin/ProductsList/ProductsList";
+import UnitPriceList from "./components/Admin/UnitPriceList/UnitPriceList";
 import PrivateRoute from "./components/Route/PrivateRoute";
 import LoginSignUp from "./components/User/LoginSignUp/LoginSignUp";
 import JwellaryBag from "./Pages/Accessories/JwelleryBag/JwelleryBag";
@@ -126,6 +129,33 @@ function App() {
               element={
                 <PrivateRoute>
                   <UpdateAccessory />
+                </PrivateRoute>
+              }
+            ></Route>
+
+            <Route
+              path="/admin/units"
+              element={
+                <PrivateRoute>
+                  <UnitPriceList></UnitPriceList>
+                </PrivateRoute>
+              }
+            ></Route>
+
+            <Route
+              path="/admin/unit"
+              element={
+                <PrivateRoute>
+                  <NewUnit></NewUnit>
+                </PrivateRoute>
+              }
+            ></Route>
+
+            <Route
+              path="/admin/unit/:id"
+              element={
+                <PrivateRoute>
+                  <UpdateUnit></UpdateUnit>
                 </PrivateRoute>
               }
             ></Route>
