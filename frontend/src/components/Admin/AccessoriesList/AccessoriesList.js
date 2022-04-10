@@ -3,18 +3,19 @@ import { useAlert } from "react-alert";
 import { useDispatch, useSelector } from "react-redux";
 import {
   clearErrors,
-  getAdminProduct,
-} from "../../../redux/actions/productAction";
+  getAdminAccessories,
+} from "../../../redux/actions/accessoriesAction";
 import Spinner from "../../spinner/Spinner";
 import Sidebar from "../Sidebar/Sidebar";
-import ProductListData from "./ProductListData";
+import AccessoriesData from "./AccessoriesData";
 
-const ProductsList = () => {
+const AccessoriesList = () => {
   const dispatch = useDispatch();
   const alert = useAlert();
-  //   const { id } = useParams();
 
-  const { error, products, loading } = useSelector((state) => state.products);
+  const { error, accessories, loading } = useSelector(
+    (state) => state.accessories
+  );
 
   useEffect(() => {
     if (error) {
@@ -22,9 +23,9 @@ const ProductsList = () => {
       dispatch(clearErrors());
     }
 
-    dispatch(getAdminProduct());
+    dispatch(getAdminAccessories());
   }, [dispatch, alert, error]);
-  console.log(products);
+  console.log(accessories);
 
   return (
     <>
@@ -40,22 +41,21 @@ const ProductsList = () => {
               <table class="table">
                 <thead>
                   <tr>
-                    <th scope="col">PRODUCT NAME</th>
+                    <th scope="col">ACCESSORY NAME</th>
                     <th scope="col">PRICE</th>
-                    <th scope="col">STOCK</th>
-                    <th scope="col">WEIGHT</th>
+                    <th scope="col">CATEGORY</th>
 
                     <th scope="col">EDIT</th>
                     <th scope="col">DELETE</th>
                   </tr>
                 </thead>
                 <tbody>
-                  {products &&
-                    products.map((product) => (
-                      <ProductListData
-                        key={product._id}
-                        product={product}
-                      ></ProductListData>
+                  {accessories &&
+                    accessories.map((item) => (
+                      <AccessoriesData
+                        key={item._id}
+                        item={item}
+                      ></AccessoriesData>
                     ))}
                 </tbody>
               </table>
@@ -67,4 +67,4 @@ const ProductsList = () => {
   );
 };
 
-export default ProductsList;
+export default AccessoriesList;

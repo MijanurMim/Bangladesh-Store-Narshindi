@@ -14,9 +14,11 @@ app.use(fileUpload());
 // Route Imports
 const product = require("./routes/productRoute");
 const user = require("./routes/userRoute");
+const accessories = require("./routes/accessoriesRoute");
 
 app.use("/api/v1", product);
 app.use("/api/v1", user);
+app.use("/api/v1", accessories);
 
 // Middleware For Error
 app.use(errorMiddleware);

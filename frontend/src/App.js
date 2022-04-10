@@ -2,17 +2,25 @@ import { useEffect } from "react";
 import { useSelector } from "react-redux";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import "./App.css";
+import AccessoriesList from "./components/Admin/AccessoriesList/AccessoriesList";
 import Dashboard from "./components/Admin/Dashboard/Dashboard";
+import NewAccessory from "./components/Admin/Dashboard/NewAccessory/NewAccessory";
 import NewProduct from "./components/Admin/Dashboard/NewProduct/NewProduct";
+import UpdateAccessory from "./components/Admin/Dashboard/UpdateAccessory/UpdateAccessory";
 import UpdateProduct from "./components/Admin/Dashboard/UpdateProduct/UpdateProduct";
 import ProductsList from "./components/Admin/ProductsList/ProductsList";
 import PrivateRoute from "./components/Route/PrivateRoute";
 import LoginSignUp from "./components/User/LoginSignUp/LoginSignUp";
+import JwellaryBag from "./Pages/Accessories/JwelleryBag/JwelleryBag";
+import JwelleryBox from "./Pages/Accessories/JwelleryBox/JwelleryBox";
+import JwelleryMachine from "./Pages/Accessories/JwelleryMachine/JwelleryMachine";
+import MenufactureItem from "./Pages/Accessories/MenufactureItem/MenufactureItem";
 import AboutUs from "./Pages/Home/AboutUs/AboutUs";
 import Footer from "./Pages/Home/Footer/Footer";
 import Home from "./Pages/Home/Home/Home";
 import NavBar from "./Pages/NavBar/NavBar";
 import NotFound from "./Pages/NotFound/NotFound";
+import OurService from "./Pages/OurService/OurService";
 import ProductDetail from "./Pages/ProductDetail/ProductDetail";
 import AllProducts from "./Pages/Products/AllProducts/AllProducts";
 import Diamonds from "./Pages/Products/Diamonds/Diamonds";
@@ -49,15 +57,15 @@ function App() {
 
             <Route path="/aboutus" element={<AboutUs />} />
 
-            {/* <Route path="/ourservice" element={<OurService />} />
+            <Route path="/ourservice" element={<OurService />} />
 
-            <Route path="/jwellerybag" element={<JwelleryBag />} />
+            <Route path="/jwellerybag" element={<JwellaryBag />} />
 
             <Route path="/jwellerybox" element={<JwelleryBox />} />
 
             <Route path="/jwellerymachine" element={<JwelleryMachine />} />
 
-            <Route path="/menufactureitem" element={<MenufactureItem />} /> */}
+            <Route path="/menufactureitem" element={<MenufactureItem />} />
 
             <Route
               path="/admin/dashboard"
@@ -91,6 +99,33 @@ function App() {
               element={
                 <PrivateRoute>
                   <UpdateProduct></UpdateProduct>
+                </PrivateRoute>
+              }
+            ></Route>
+
+            <Route
+              path="/admin/accessories"
+              element={
+                <PrivateRoute>
+                  <AccessoriesList />
+                </PrivateRoute>
+              }
+            ></Route>
+
+            <Route
+              path="/admin/accessory"
+              element={
+                <PrivateRoute>
+                  <NewAccessory />
+                </PrivateRoute>
+              }
+            ></Route>
+
+            <Route
+              path="/admin/accessory/:id"
+              element={
+                <PrivateRoute>
+                  <UpdateAccessory />
                 </PrivateRoute>
               }
             ></Route>

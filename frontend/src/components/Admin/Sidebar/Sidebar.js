@@ -10,6 +10,12 @@ const Sidebar = () => {
       <Link to="/admin/product">
         <p>New Product</p>
       </Link>
+      <Link to="/admin/accessories">
+        <p>All Accessories</p>
+      </Link>
+      <Link to="/admin/accessory">
+        <p>New Accessories</p>
+      </Link>
     </div>
   );
 };

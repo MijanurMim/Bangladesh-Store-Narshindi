@@ -1,4 +1,3 @@
-import { useEffect } from "react";
 import { useAlert } from "react-alert";
 import { useDispatch } from "react-redux";
 import { Link, useNavigate } from "react-router-dom";
@@ -9,7 +8,11 @@ const ProductListData = ({ product }) => {
   const alert = useAlert();
   const navigate = useNavigate();
 
-  const { _id, name, Stock, price } = product;
+  const { _id, name, Stock, price, weight } = product;
+
+  // useEffect(() => {
+  //   navigate("/admin/products");
+  // }, [navigate]);
 
   // Delete Product Handler
   const deleteProductHandler = (id) => {
@@ -22,16 +25,14 @@ const ProductListData = ({ product }) => {
       navigate("/admin/dashboard");
     }
   };
-  useEffect(() => {
-    navigate("/admin/products");
-  }, [navigate]);
 
   return (
     <tr>
-      <th scope="row">{_id}</th>
-      <td>{name}</td>
-      <td>{Stock}</td>
+      <th scope="row">{name}</th>
+
       <td>{price}</td>
+      <td>{Stock}</td>
+      <td>{weight}</td>
       <td>
         <Link to={`/admin/product/${_id}`}>Edit </Link>
       </td>

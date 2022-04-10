@@ -2,6 +2,13 @@ import { applyMiddleware, combineReducers, createStore } from "redux";
 import { composeWithDevTools } from "redux-devtools-extension";
 import thunk from "redux-thunk";
 import {
+  accessoriesDetailsReducer,
+  accessoryReducer,
+  deleteAccessoryReducer,
+  newAccessoryReducer,
+  updateAccessoryReducer,
+} from "./redux/reducers/accessoriesReducer";
+import {
   deleteProductReducer,
   newProductReducer,
   newReviewReducer,
@@ -19,6 +26,12 @@ const reducer = combineReducers({
   newProduct: newProductReducer,
   deleteProduct: deleteProductReducer,
   updateProduct: updateProductReducer,
+
+  accessories: accessoryReducer,
+  accessoryDetails: accessoriesDetailsReducer,
+  newAccessory: newAccessoryReducer,
+  deleteAccessory: deleteAccessoryReducer,
+  updateAccessory: updateAccessoryReducer,
 });
 
 let initialState = {};

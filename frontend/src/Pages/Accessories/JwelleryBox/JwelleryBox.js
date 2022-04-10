@@ -1,15 +1,11 @@
-import React from 'react';
-import Footer from '../../Home/Footer/Footer';
-import NavBar from '../../NavBar/NavBar';
+import React from "react";
 
 const JwelleryBox = () => {
-    return (
-        <div>
-            <NavBar></NavBar>
-            <h2>This is jwellery box</h2>
-            {/* <Footer></Footer> */}
-        </div>
-    );
+  return (
+    <div>
+      <h2>This is jwellery box</h2>
+    </div>
+  );
 };
 
 export default JwelleryBox;
